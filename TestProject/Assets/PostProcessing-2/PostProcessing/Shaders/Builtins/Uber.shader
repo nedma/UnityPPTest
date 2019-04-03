@@ -216,8 +216,14 @@ Shader "Hidden/PostProcessing/Uber"
             }
             #elif COLOR_GRADING_HDR_2D
             {
+		// [nedma]pre exposure in linear space
                 color *= _PostExposure;
+
+		// refer to Colors.hlsl
+		// [nedma]Linear To LogC
                 float3 colorLutSpace = saturate(LUT_SPACE_ENCODE(color.rgb));
+
+		// [nedma]Read LUT using bilinear filter
                 color.rgb = ApplyLut2D(TEXTURE2D_PARAM(_Lut2D, sampler_Lut2D), colorLutSpace, _Lut2D_Params);
             }
             #elif COLOR_GRADING_LDR_2D
