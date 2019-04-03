@@ -605,7 +605,7 @@ namespace UnityEngine.Rendering.PostProcessing
                 else if (tonemapper == Tonemapper.Neutral)
                     lutSheet.EnableKeyword("TONEMAPPING_NEUTRAL");
 
-                // Generate the lut
+                // [nedma]Generate the lut
                 context.command.BeginSample("HdrColorGradingLut2D");
                 context.command.BlitFullscreenTriangle(BuiltinRenderTextureType.None, m_InternalLdrLut, lutSheet, (int)Pass.LutGenHDR2D);
                 context.command.EndSample("HdrColorGradingLut2D");
