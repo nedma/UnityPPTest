@@ -406,6 +406,8 @@ namespace UnityEngine.Rendering.PostProcessing
 
         readonly HableCurve m_HableCurve = new HableCurve();
 
+        static bool m_ForceUseLUT2D = true;
+
         public override void Render(PostProcessRenderContext context)
         {
             var gradingMode = settings.gradingMode.value;
@@ -417,7 +419,7 @@ namespace UnityEngine.Rendering.PostProcessing
 
             if (gradingMode == GradingMode.External)
                 RenderExternalPipeline3D(context);
-            else if (gradingMode == GradingMode.HighDefinitionRange && supportComputeTex3D)
+            else if (gradingMode == GradingMode.HighDefinitionRange && supportComputeTex3D && !m_ForceUseLUT2D)
                 RenderHDRPipeline3D(context);
             else if (gradingMode == GradingMode.HighDefinitionRange)
                 RenderHDRPipeline2D(context);
