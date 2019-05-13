@@ -553,6 +553,7 @@ namespace UnityEngine.Rendering.PostProcessing
                 var lutSheet = context.propertySheets.Get(context.resources.shaders.lut2DBaker);
                 lutSheet.ClearKeywords();
 
+                // [nedma]params = (lut_height, 0.5 / lut_width, 0.5 / lut_height, lut_height / lut_height - 1)
                 lutSheet.properties.SetVector(ShaderIDs.Lut2D_Params, new Vector4(k_Lut2DSize, 0.5f / (k_Lut2DSize * k_Lut2DSize), 0.5f / k_Lut2DSize, k_Lut2DSize / (k_Lut2DSize - 1f)));
 
                 var colorBalance = ColorUtilities.ComputeColorBalance(settings.temperature.value, settings.tint.value);

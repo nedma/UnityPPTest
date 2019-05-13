@@ -485,9 +485,9 @@ float3 GetLutStripValue(float2 uv, float4 params)
 {
     uv -= params.yz;
     float3 color;
-    color.r = frac(uv.x * params.x);
-    color.b = uv.x - color.r / params.x;
-    color.g = uv.y;
+    color.r = frac(uv.x * params.x);  // [nedma]tiling 32 times along y direction
+    color.b = uv.x - color.r / params.x;  // [nedma]constant along y, varing from 0~1 along x but constant inside one cell(32x32)
+    color.g = uv.y; // [nedma]constant along x direction, varing from 0~1 along y direction
     return color * params.w;
 }
 
