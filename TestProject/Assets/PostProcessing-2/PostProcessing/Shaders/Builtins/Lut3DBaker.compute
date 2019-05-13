@@ -82,7 +82,8 @@ float3 LinearGrade(float3 colorLinear)
 }
 
 #if TONEMAPPING_ACES
-
+// [nedma]aces 3d LUT baker
+// Codes are the same with ColorGradeHDR() in Lut2DBaker.shader
 float3 ColorGrade(float3 colorLutSpace)
 {
     float3 colorLinear = LUT_SPACE_DECODE(colorLutSpace);
