@@ -37,6 +37,7 @@ namespace UnityEngine.Rendering.PostProcessing
         /// <summary>
         /// Clamps pixels to control the bloom amount. This value is expressed in gamma-space.
         /// </summary>
+       //[nedma]Clamp when setup
         [Tooltip("Clamps pixels to control the bloom amount. Value is in gamma-space.")]
         public FloatParameter clamp = new FloatParameter { value = 65472f };
 
@@ -46,6 +47,7 @@ namespace UnityEngine.Rendering.PostProcessing
         /// iteration count, animating it isn't recommended as it may introduce small hiccups in
         /// the perceived radius.
         /// </summary>
+        //[nedma]Only affect upscaling offset
         [Range(1f, 10f), Tooltip("Changes the extent of veiling effects. For maximum quality, use integer values. Because this value changes the internal iteration count, You should not animating it as it may introduce issues with the perceived radius.")]
         public FloatParameter diffusion = new FloatParameter { value = 7f };
 
