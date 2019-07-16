@@ -113,6 +113,8 @@ namespace UnityEditor.Rendering.PostProcessing
             if (attr.mode == TrackballAttribute.Mode.None)
                 return;
 
+            // [nedma]Numbers shown below the ball
+            // Notice that the values passed into the shader is multiplied by another number(such as 0.2, 0.8)
             // Values
             var displayValue = Vector3.zero;
 
