@@ -586,7 +586,7 @@ float3 Contrast(float3 c, float midpoint, float contrast)
     return (c - midpoint) * contrast + midpoint;
 }
 
-//
+// [nedma]The function is so simple....but it seems that the three parameters cannot control different intensity range seperately
 // Lift, Gamma (pre-inverted), Gain tuned for HDR use - best used with the ACES tonemapper as
 // negative values will creep in the result
 // Expected workspace: ACEScg (linear)
